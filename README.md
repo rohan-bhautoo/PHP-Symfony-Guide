@@ -17,7 +17,18 @@
 ## Prerequisite
 
 ### PHP 8.1
-> Download it [here](https://windows.php.net/download#php-8.1).
+> Download it [here](https://windows.php.net/download#php-8.1) and choose the Thread safe version.
+
+#### Install PHP on Windows
+##### 1. Extract the downloaded zip file in ```C:\Program Files\``` directory
+##### 2. Copy the full directory of the extracted folder
+##### 3. Now click on Start Menu and search ```Environment variables``` and open it.
+##### 4. Under System variables, add a new path and paste the full directory in step 2.
+##### 5. Save your changes and check the php version in command prompt.
+
+```shell
+php --version
+```
 
 ### Composer
 > Composer will be used to install PHP packages. Download it [here](https://getcomposer.org/download/).
