@@ -56,6 +56,16 @@ Composer will be used to install PHP packages. Download it [here](https://getcom
 
 </details>
 
+#### Installing Packages
+A common practice when developing Symfony applications is to install packages([bundles](https://symfony.com/doc/current/bundles.html)) that provide ready-to-use features.
+
+Most of the time this setup can be automated and that's why Symfony includes ```Symfony Flex```, a tool to simplify the installation/removal of packages in Symfony applications. Technically speaking, Symfony Flex is a Composer plugin that is installed by default when creating a new Symfony application and which automates the most common tasks of Symfony applications.
+
+```shell
+cd my-project/
+composer require logger
+```
+
 ### Create Project and Pages
 Open your console terminal and run any of these commands to create a new Symfony application:
 
@@ -76,14 +86,14 @@ Download the binary file of the CLI [here](https://github.com/symfony-cli/symfon
 symfony server:start -d
 ```
 
-## Symfony Commands
+#### Route and Controller
+A **Route** is the URL (e.g. /about) to your page and points to a controller.
 
-### Creating new projects with Composer
-```shell
-composer create-project symfony/skeleton:"6.2.*" my_project_directory
-```
+A **Controller** is the PHP function you write that builds the page. You take the incoming request information and use it to create a Symfony Response object, which can hold HTML content, a JSON string or even a binary file like an image or PDF.
 
-### Creating new controllers
+##### Creating new controllers
+After running the command, a new ```controller``` and its ```twig``` file is created in their respective directory.
+
 ```shell
 php bin/console make:controller
 ```
