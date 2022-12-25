@@ -48,6 +48,24 @@ php composer-setup.php
 php -r "unlink('composer-setup.php');"
 ```
 
+## Symfony Commands
+
+### Creating new projects with Composer
+```shell
+composer create-project symfony/skeleton:"6.2.*" my_project_directory
+```
+
+### Using Symfony CLI to use Local Web Server
+> Download the binary file [here](https://github.com/symfony-cli/symfony-cli/releases/download/v5.4.20/symfony-cli_windows_386.zip) and extract the execution file to your project directory.
+```shell
+symfony server:start -d
+```
+
+### Creating new controllers
+```shell
+php bin/console make:controller
+```
+
 ## Author
 
 👤 **Rohan Bhautoo**
