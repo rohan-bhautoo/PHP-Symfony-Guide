@@ -1,7 +1,6 @@
 <p align="center">
   <img width="400" height="100" src="https://symfony.com/logos/symfony_black_02.png">
 </p>
-<h1 align="center">PHP Symfony Guide</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-brightgreen.svg" />
   <img alt="PHP" src="https://img.shields.io/badge/PHP-777BB4?logo=php&logoColor=white" />
@@ -9,43 +8,72 @@
   <img alt="Composer" src="https://img.shields.io/badge/Composer-7A6E7E?logo=composer&logoColor=white" />
 </p>
 
-## Description
-> A guide to help you with PHP Symfony Framwork basics, architecture and advanced topics.
->
-> https://symfony.com/doc/current/index.html
+This guide will help you to learn PHP Symfony Framework basics, the architecture and some advanced topics like Mailers, Validations, Notifications, etc. The full guide can be seen on the [Symfony Documentation](https://symfony.com/doc/current/index.html).
 
-## Prerequisite
+## Get Started
 
-### PHP 8.1
-> Download it [here](https://windows.php.net/download#php-8.1) and choose the Thread safe version.
+### Setup / Installation
 
-#### Install PHP on Windows
-##### 1. Extract the downloaded zip file in ```C:\Program Files\``` directory
-##### 2. Copy the full directory of the extracted folder
-##### 3. Now click on Start Menu and search ```Environment variables``` and open it.
-##### 4. Under System variables, add a new path and paste the full directory in step 2.
-##### 5. Save your changes and check the php version in command prompt.
+#### PHP 8.1
+Install PHP 8.1 or higher. Download the Thread safe version [here](https://windows.php.net/download#php-8.1).
+
+<details><summary><b>Show Steps</b></summary>
+
+1. Extract the downloaded zip file in ```C:\Program Files\``` directory.
+
+2. Copy the full directory of the extracted folder.
+
+3. Now click on Start Menu and search ```Environment variables``` and open it.
+
+4. Under System variables, add a new value inside the ```Path``` variable and paste the full directory in step 2.
+
+5. Save your changes and check the php version in command prompt.
+
+    ```shell
+    php --version
+    PHP 8.1.13 (cli) (built: Nov 22 2022 15:49:14) (ZTS Visual C++ 2019 x64)
+    Copyright (c) The PHP Group
+    Zend Engine v4.1.13, Copyright (c) Zend Technologies
+    ```
+
+</details>
+
+#### Composer
+Composer will be used to install PHP packages. Download it [here](https://getcomposer.org/download/).
+
+<details><summary><b>Show Installations</b></summary>
+
+1. Windows Installer - The installer, which requires that you have PHP already installed, will download Composer for you and set up your PATH environment variable so you can simply call composer from any directory. Download and run [Composer-Setup.exe](https://getcomposer.org/Composer-Setup.exe) - it will install the latest composer version whenever it is executed.
+
+2. Command-line installation - To quickly install Composer in the current directory, run the following script in your terminal. Use this [guide to install Composer programatically](https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md).
+
+    ```sh
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+    php composer-setup.php
+    php -r "unlink('composer-setup.php');"
+    ```
+
+</details>
+
+### Create Project and Pages
+Open your console terminal and run any of these commands to create a new Symfony application:
 
 ```shell
-php --version
+composer create-project symfony/skeleton:"6.2.*" my_project_directory
+cd my_project_directory
+composer require webapp
 ```
 
-### Composer
-> Composer will be used to install PHP packages. Download it [here](https://getcomposer.org/download/).
+#### Running Symfony Applications
+For local development, the most convenient way of running Symfony is by using the local web server provided by the symfony binary.
 
-#### Windows Installer
-> The installer - which requires that you have PHP already installed - will download Composer for you and set up your PATH environment variable so you can simply call composer from any directory.
->
-> Download and run Composer-Setup.exe - it will install the latest composer version whenever it is executed. 
+##### Using Symfony CLI to use Local Web Server
+Download the binary file of the CLI [here](https://github.com/symfony-cli/symfony-cli/releases/download/v5.4.20/symfony-cli_windows_386.zip) and extract the execution file to your project directory.
 
-#### Command-line installation
-> To quickly install Composer in the current directory, run the following script in your terminal.
-
-```sh
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-php composer-setup.php
-php -r "unlink('composer-setup.php');"
+```shell
+# Run server in background with -d
+symfony server:start -d
 ```
 
 ## Symfony Commands
@@ -53,12 +81,6 @@ php -r "unlink('composer-setup.php');"
 ### Creating new projects with Composer
 ```shell
 composer create-project symfony/skeleton:"6.2.*" my_project_directory
-```
-
-### Using Symfony CLI to use Local Web Server
-> Download the binary file [here](https://github.com/symfony-cli/symfony-cli/releases/download/v5.4.20/symfony-cli_windows_386.zip) and extract the execution file to your project directory.
-```shell
-symfony server:start -d
 ```
 
 ### Creating new controllers
