@@ -17,7 +17,18 @@
 ## Prerequisite
 
 ### PHP 8.1
-> Download it [here](https://windows.php.net/download#php-8.1).
+> Download it [here](https://windows.php.net/download#php-8.1) and choose the Thread safe version.
+
+#### Install PHP on Windows
+##### 1. Extract the downloaded zip file in ```C:\Program Files\``` directory
+##### 2. Copy the full directory of the extracted folder
+##### 3. Now click on Start Menu and search ```Environment variables``` and open it.
+##### 4. Under System variables, add a new path and paste the full directory in step 2.
+##### 5. Save your changes and check the php version in command prompt.
+
+```shell
+php --version
+```
 
 ### Composer
 > Composer will be used to install PHP packages. Download it [here](https://getcomposer.org/download/).
@@ -35,6 +46,24 @@ php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
+```
+
+## Symfony Commands
+
+### Creating new projects with Composer
+```shell
+composer create-project symfony/skeleton:"6.2.*" my_project_directory
+```
+
+### Using Symfony CLI to use Local Web Server
+> Download the binary file [here](https://github.com/symfony-cli/symfony-cli/releases/download/v5.4.20/symfony-cli_windows_386.zip) and extract the execution file to your project directory.
+```shell
+symfony server:start -d
+```
+
+### Creating new controllers
+```shell
+php bin/console make:controller
 ```
 
 ## Author
