@@ -98,6 +98,48 @@ After running the command, a new ```controller``` and its ```twig``` file is cre
 php bin/console make:controller
 ```
 
+##### Annotation Routes
+Instead of defining your route in YAML, Symfony also allows you to use ```annotation``` or ```attribute routes```. Attributes are built-in in PHP starting from PHP 8. In earlier PHP versions you can use annotations. To do this, install the annotations package:
+
+```shell
+composer require annotations
+```
+
+The route can be directly placed above the controller:
+
+```php
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class IndexController extends AbstractController
+{
+    #[Route('/index', name: 'app_index')]
+    public function index(): Response
+    {
+        return $this->render('index/index.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
+    }
+}
+```
+
+The page can be tested with Symfony Web Server at http://localhost:8000/index.
+
+##### Twig Templates
+If you're returning HTML from your controller, you'll probably want to render a template. Twig is the template engine used in Symfony applications. There are tens of default filters and functions defined by Twig, but Symfony also defines some filters, functions and tags to integrate the various Symfony components with Twig templates.
+
+> Template files live in the templates/ directory, which was created for you automatically when you installed Twig.
+
+```twig
+{# templates/index/index.html.twig #}
+<h1>Hello {{ controller_name }}! ✅</h1>
+```
+
 ## Author
 
 👤 **Rohan Bhautoo**
