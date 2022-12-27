@@ -75,6 +75,16 @@ cd my_project_directory
 composer require webapp
 ```
 
+#### Project Structure
+* ```config/```     - Contains all configuration files such as routes, services and packages.
+* ```migrations/``` - Contains all doctrine migration class files.
+* ```src/```        - Contains all PHP code.
+* ```templates/```  - Contains all Twig templates.
+* ```bin/```        - Contains files for the bin/console command.
+* ```var/```        - Contains all automatically-created files like cache files and logs.
+* ```vendor/```     - Contains all third-party libraries. These are downloaded via the Composer package manager.
+* ```public/```     - It is the document root of the project where any publicly accessible files are contained.
+
 #### Running Symfony Applications
 For local development, the most convenient way of running Symfony is by using the local web server provided by the symfony binary.
 
@@ -139,6 +149,12 @@ If you're returning HTML from your controller, you'll probably want to render a 
 {# templates/index/index.html.twig #}
 <h1>Hello {{ controller_name }}! ✅</h1>
 ```
+
+### Routing / Generating URLs
+When your application receives a request, it calls a controller action to generate the response. The routing configuration defines which action to run for each incoming URL. It also provides other useful features, like generating SEO-friendly URLs
+
+#### Creating Routes
+Routes can be configured in YAML, XML, PHP or using attributes. Symfony recommends attributes because it's convenient to put the route and controller in the same place.
 
 ## Author
 
