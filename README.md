@@ -199,7 +199,7 @@ class IndexController extends AbstractController
         // expressions can also include config parameters:
         // condition: "request.headers.get('User-Agent') matches '%app.allowed_browsers%'"
     )]
-    public function contact(): Response
+    public function index(): Response
     {
         // ...
     }
