@@ -156,6 +156,62 @@ When your application receives a request, it calls a controller action to genera
 #### Creating Routes
 Routes can be configured in YAML, XML, PHP or using attributes. Symfony recommends attributes because it's convenient to put the route and controller in the same place.
 
+#### Matching HTTP Methods
+By default, routes match any HTTP verb (GET, POST, PUT, etc.) Use the methods option to restrict the verbs each route should respond to:
+
+```php
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class IndexController extends AbstractController
+{
+    #[Route('/api/{id}', methods: ['GET', 'HEAD'])]
+    public function show(int $id): Response
+    {
+        // ... return a JSON response
+    }
+}
+```
+
+#### Matching Expressions
+Use the condition option if you need some route to match based on some arbitrary matching logic.
+
+```php
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class IndexController extends AbstractController
+{
+    #[Route(
+        '/index',
+        name: 'app_index',
+        condition: "context.getMethod() in ['GET', 'HEAD'] and request.headers.get('User-Agent') matches '/firefox/i'",
+        // expressions can also include config parameters:
+        // condition: "request.headers.get('User-Agent') matches '%app.allowed_browsers%'"
+    )]
+    public function contact(): Response
+    {
+        // ...
+    }
+}
+```
+
+The value of the condition option is any valid [ExpressionLanguage expression](https://symfony.com/doc/current/components/expression_language/syntax.html) and can use any of these variables created by Symfony.
+
+* ```context``` - An instance of RequestContext, which holds the most fundamental information about the route being matched. 
+* ```request``` - The Symfony Request object that represents the current request.
+* ```params```  - An array of matched route parameters for the current route.
+
 ## Author
 
 👤 **Rohan Bhautoo**
