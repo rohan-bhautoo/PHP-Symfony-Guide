@@ -215,18 +215,7 @@ The value of the condition option is any valid [ExpressionLanguage expression](h
 Some functions can also be used.
 
 * ```env(string $name)``` - Returns the value of a variable using [Environment Variable Processors](https://symfony.com/doc/current/configuration/env_var_processors.html)
-* ```service(string $alias)``` - Returns a routing condition service. First, add the ```#[AsRoutingConditionService]``` attribute or ```routing.condition_service``` tag to the services that you want to use in route conditions.use Symfony\Bundle\FrameworkBundle\Routing\Attribute\AsRoutingConditionService;
-use Symfony\Component\HttpFoundation\Request;
-
-#[AsRoutingConditionService(alias: 'route_checker')]
-class RouteChecker
-{
-    public function check(Request $request): bool
-    {
-        // ...
-    }
-}
-```
+* ```service(string $alias)``` - Returns a routing condition service. First, add the ```#[AsRoutingConditionService]``` attribute or ```routing.condition_service``` tag to the services that you want to use in route conditions.
 
 ```php
 use Symfony\Bundle\FrameworkBundle\Routing\Attribute\AsRoutingConditionService;
@@ -241,6 +230,17 @@ class RouteChecker
     }
 }
 ```
+* Then, use the service() function to refer to that service inside conditions:
+
+```php
+// Controller (using an alias):
+#[Route(condition: "service('route_checker').check(request)")]
+// Or without alias:
+#[Route(condition: "service('Ap\\\Service\\\RouteChecker').check(request)")]
+```
+
+#### Route Parameters
+The previous examples defined routes where the URL never changes (e.g. ```/index```). However, it's common to define routes where some parts are variable. For example, the URL to display some blog post will probably include the title or slug (e.g. ```/index/my-first-index``` or ```/index/php-symfony-guide```).
 
 ## Author
 
