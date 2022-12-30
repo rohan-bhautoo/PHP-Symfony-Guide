@@ -212,6 +212,36 @@ The value of the condition option is any valid [ExpressionLanguage expression](h
 * ```request``` - The Symfony Request object that represents the current request.
 * ```params```  - An array of matched route parameters for the current route.
 
+Some functions can also be used.
+
+* ```env(string $name)``` - Returns the value of a variable using [Environment Variable Processors](https://symfony.com/doc/current/configuration/env_var_processors.html)
+* ```service(string $alias)``` - Returns a routing condition service. First, add the ```#[AsRoutingConditionService]``` attribute or ```routing.condition_service``` tag to the services that you want to use in route conditions.use Symfony\Bundle\FrameworkBundle\Routing\Attribute\AsRoutingConditionService;
+use Symfony\Component\HttpFoundation\Request;
+
+#[AsRoutingConditionService(alias: 'route_checker')]
+class RouteChecker
+{
+    public function check(Request $request): bool
+    {
+        // ...
+    }
+}
+```
+
+```php
+use Symfony\Bundle\FrameworkBundle\Routing\Attribute\AsRoutingConditionService;
+use Symfony\Component\HttpFoundation\Request;
+
+#[AsRoutingConditionService(alias: 'route_checker')]
+class RouteChecker
+{
+    public function check(Request $request): bool
+    {
+        // ...
+    }
+}
+```
+
 ## Author
 
 👤 **Rohan Bhautoo**
