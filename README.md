@@ -239,7 +239,7 @@ class RouteChecker
 #[Route(condition: "service('Ap\\\Service\\\RouteChecker').check(request)")]
 ```
 
-#### Route Parameters
+### Route Parameters
 The previous examples defined routes where the URL never changes (e.g. ```/index```). However, it's common to define routes where some parts are variable. For example, the URL to display some blog post will probably include the title or slug (e.g. ```/index/my-first-index``` or ```/index/php-symfony-guide```).
 
 In Symfony routes, variable parts are wrapped in ```{ ... }``` and they must have a unique name.
@@ -261,6 +261,8 @@ class IndexController extends AbstractController
     }
 }
 ```
+
+#### Parameters Validation
 
 ## Author
 
