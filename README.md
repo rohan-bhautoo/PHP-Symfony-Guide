@@ -92,16 +92,34 @@ Docker will be used to run a database server and db admin panel.
 
 ## Symfony 101
 
-### Create Project and Pages
+### Creating Project
 Open your console terminal and run any of these commands to create a new Symfony application:
 
+#### Symfony-cli:
+```shell
+symfony new my_project_directory --version="6.2.*"
+```
+
+#### Composer:
 ```shell
 composer create-project symfony/skeleton:"6.2.*" my_project_directory
 cd my_project_directory
 composer require webapp
 ```
 
-#### Project Structure
+### Symfony Check
+
+#### Technical Requirements
+```shell
+symfony check:requirements
+```
+
+#### Security
+```shell
+symfony check:security
+```
+
+### Project Structure
 * ```config/```     - Contains all configuration files such as routes, services and packages.
 * ```migrations/``` - Contains all doctrine migration class files.
 * ```src/```        - Contains all PHP code.
