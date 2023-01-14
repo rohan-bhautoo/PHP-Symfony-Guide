@@ -90,6 +90,8 @@ Download the 386 binaries [here](https://symfony.com/download).
 #### Docker
 Docker will be used to run a database server and db admin panel.
 
+## Symfony 101
+
 ### Create Project and Pages
 Open your console terminal and run any of these commands to create a new Symfony application:
 
@@ -113,7 +115,6 @@ composer require webapp
 For local development, the most convenient way of running Symfony is by using the local web server provided by the symfony binary.
 
 ##### Using Symfony CLI to use Local Web Server
-Download the binary file of the CLI [here](https://github.com/symfony-cli/symfony-cli/releases/download/v5.4.20/symfony-cli_windows_386.zip) and extract the execution file to your project directory.
 
 ```shell
 # Run server in background with -d
