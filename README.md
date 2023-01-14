@@ -134,7 +134,7 @@ symfony check:security
 * ```migrations/``` - Contains all doctrine migration class files.
 * ```src/```        - Contains all PHP code.
 * ```templates/```  - Contains all Twig templates.
-* ```bin/```        - Contains files for the bin/console command.
+* ```bin/```        - Contains files for the bin/console command. Ex: ```php bin/console <command>```
 * ```var/```        - Contains all automatically-created files like cache files and logs.
 * ```vendor/```     - Contains all third-party libraries. These are downloaded via the Composer package manager.
 * ```public/```     - It is the document root of the project where any publicly accessible files are contained.
