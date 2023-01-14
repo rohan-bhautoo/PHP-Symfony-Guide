@@ -107,6 +107,16 @@ cd my_project_directory
 composer require webapp
 ```
 
+#### Running Symfony Applications
+For local development, the most convenient way of running Symfony is by using the local web server provided by the symfony binary.
+
+##### Using Symfony CLI to run Local Web Server
+
+```shell
+# Run server in background with -d
+symfony server:start -d
+```
+
 ### Symfony Check
 
 #### Technical Requirements
@@ -128,16 +138,6 @@ symfony check:security
 * ```var/```        - Contains all automatically-created files like cache files and logs.
 * ```vendor/```     - Contains all third-party libraries. These are downloaded via the Composer package manager.
 * ```public/```     - It is the document root of the project where any publicly accessible files are contained.
-
-#### Running Symfony Applications
-For local development, the most convenient way of running Symfony is by using the local web server provided by the symfony binary.
-
-##### Using Symfony CLI to use Local Web Server
-
-```shell
-# Run server in background with -d
-symfony server:start -d
-```
 
 #### Route and Controller
 A **Route** is the URL (e.g. /about) to your page and points to a controller.
