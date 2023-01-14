@@ -95,12 +95,12 @@ Docker will be used to run a database server and db admin panel.
 ### Creating Project
 Open your console terminal and run any of these commands to create a new Symfony application:
 
-#### Symfony-cli:
+#### Symfony-cli
 ```shell
 symfony new my_project_directory --version="6.2.*"
 ```
 
-#### Composer:
+#### Composer
 ```shell
 composer create-project symfony/skeleton:"6.2.*" my_project_directory
 cd my_project_directory
