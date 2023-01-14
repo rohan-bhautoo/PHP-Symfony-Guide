@@ -70,6 +70,23 @@ Composer will be used to install PHP packages. Download it [here](https://getcom
 
 </details>
 
+#### Symfony CLI
+Download the 386 binaries [here](https://symfony.com/download).
+
+<details><summary><b>Show Installations</b></summary>
+  
+  1. Extract the ZIP file to C:\symfony-cli.
+  
+  2. Add to the Path environment variable under ***User Variables***.
+  
+  3. Run ```symfony``` in terminal to see the CLI version and commands.
+  
+  <p align="center">
+    <img width="600" height="400" src="https://user-images.githubusercontent.com/47154593/212466111-18f4d35e-87b7-47ea-a3cd-04be8493f3f5.png">
+  </p>
+
+</details>
+
 #### Docker
 Docker will be used to run a database server and db admin panel.
 
