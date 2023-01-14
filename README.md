@@ -6,9 +6,22 @@
   <img alt="PHP" src="https://img.shields.io/badge/PHP-777BB4?logo=php&logoColor=white" />
   <img alt="Symfony" src="https://img.shields.io/badge/Symfony-000000?logo=symfony&logoColor=white" />
   <img alt="Composer" src="https://img.shields.io/badge/Composer-7A6E7E?logo=composer&logoColor=white" />
+  <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind CSS-3490DC?logo=tailwindcss&logoColor=white" />
 </p>
 
-This guide will help you to learn PHP Symfony Framework basics, the architecture and some advanced topics like Mailers, Validations, Notifications, etc. The full guide can be seen on the [Symfony Documentation](https://symfony.com/doc/current/index.html).
+This guide will help you to learn PHP Symfony 6 Framework basics. The concepts in this course include:
+* Basic of handling requests
+* Twig templates
+* Databases and Doctrine
+* Doctrine Relations
+* Querying the database
+* Authentication (registration, e-mail confirmation, login page, banning users)
+* Authorization of users (roles, voters)
+* User permission system (role-based)
+* File uploads and displaying uploaded images
+* Sending e-mail
+
+You'll learn all this while building a fun and interesting project, a Twitter-like clone, using the most modern CSS framework Tailwind CSS.
 
 ## Get Started
 
@@ -56,16 +69,6 @@ Composer will be used to install PHP packages. Download it [here](https://getcom
 
 </details>
 
-#### Installing Packages
-A common practice when developing Symfony applications is to install packages([bundles](https://symfony.com/doc/current/bundles.html)) that provide ready-to-use features.
-
-Most of the time this setup can be automated and that's why Symfony includes ```Symfony Flex```, a tool to simplify the installation/removal of packages in Symfony applications. Technically speaking, Symfony Flex is a Composer plugin that is installed by default when creating a new Symfony application and which automates the most common tasks of Symfony applications.
-
-```shell
-cd my-project/
-composer require logger
-```
-
 ### Create Project and Pages
 Open your console terminal and run any of these commands to create a new Symfony application:
 
@@ -107,162 +110,6 @@ After running the command, a new ```controller``` and its ```twig``` file is cre
 ```shell
 php bin/console make:controller
 ```
-
-##### Annotation Routes
-Instead of defining your route in YAML, Symfony also allows you to use ```annotation``` or ```attribute routes```. Attributes are built-in in PHP starting from PHP 8. In earlier PHP versions you can use annotations. To do this, install the annotations package:
-
-```shell
-composer require annotations
-```
-
-The route can be directly placed above the controller:
-
-```php
-<?php
-
-namespace App\Controller;
-
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-
-class IndexController extends AbstractController
-{
-    #[Route('/index', name: 'app_index')]
-    public function index(): Response
-    {
-        return $this->render('index/index.html.twig', [
-            'controller_name' => 'IndexController',
-        ]);
-    }
-}
-```
-
-The page can be tested with Symfony Web Server at http://localhost:8000/index.
-
-##### Twig Templates
-If you're returning HTML from your controller, you'll probably want to render a template. Twig is the template engine used in Symfony applications. There are tens of default filters and functions defined by Twig, but Symfony also defines some filters, functions and tags to integrate the various Symfony components with Twig templates.
-
-> Template files live in the templates/ directory, which was created for you automatically when you installed Twig.
-
-```twig
-{# templates/index/index.html.twig #}
-<h1>Hello {{ controller_name }}! ✅</h1>
-```
-
-### Routing / Generating URLs
-When your application receives a request, it calls a controller action to generate the response. The routing configuration defines which action to run for each incoming URL. It also provides other useful features, like generating SEO-friendly URLs
-
-#### Creating Routes
-Routes can be configured in YAML, XML, PHP or using attributes. Symfony recommends attributes because it's convenient to put the route and controller in the same place.
-
-#### Matching HTTP Methods
-By default, routes match any HTTP verb (GET, POST, PUT, etc.) Use the methods option to restrict the verbs each route should respond to:
-
-```php
-<?php
-
-namespace App\Controller;
-
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-
-class IndexController extends AbstractController
-{
-    #[Route('/api/{id}', methods: ['GET', 'HEAD'])]
-    public function show(int $id): Response
-    {
-        // ... return a JSON response
-    }
-}
-```
-
-#### Matching Expressions
-Use the condition option if you need some route to match based on some arbitrary matching logic.
-
-```php
-<?php
-
-namespace App\Controller;
-
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-
-class IndexController extends AbstractController
-{
-    #[Route(
-        '/index',
-        name: 'app_index',
-        condition: "context.getMethod() in ['GET', 'HEAD'] and request.headers.get('User-Agent') matches '/firefox/i'",
-        // expressions can also include config parameters:
-        // condition: "request.headers.get('User-Agent') matches '%app.allowed_browsers%'"
-    )]
-    public function index(): Response
-    {
-        // ...
-    }
-}
-```
-
-The value of the condition option is any valid [ExpressionLanguage expression](https://symfony.com/doc/current/components/expression_language/syntax.html) and can use any of these variables created by Symfony.
-
-* ```context``` - An instance of RequestContext, which holds the most fundamental information about the route being matched. 
-* ```request``` - The Symfony Request object that represents the current request.
-* ```params```  - An array of matched route parameters for the current route.
-
-Some functions can also be used.
-
-* ```env(string $name)``` - Returns the value of a variable using [Environment Variable Processors](https://symfony.com/doc/current/configuration/env_var_processors.html)
-* ```service(string $alias)``` - Returns a routing condition service. First, add the ```#[AsRoutingConditionService]``` attribute or ```routing.condition_service``` tag to the services that you want to use in route conditions.
-
-```php
-use Symfony\Bundle\FrameworkBundle\Routing\Attribute\AsRoutingConditionService;
-use Symfony\Component\HttpFoundation\Request;
-
-#[AsRoutingConditionService(alias: 'route_checker')]
-class RouteChecker
-{
-    public function check(Request $request): bool
-    {
-        // ...
-    }
-}
-```
-* Then, use the service() function to refer to that service inside conditions:
-
-```php
-// Controller (using an alias):
-#[Route(condition: "service('route_checker').check(request)")]
-// Or without alias:
-#[Route(condition: "service('Ap\\\Service\\\RouteChecker').check(request)")]
-```
-
-### Route Parameters
-The previous examples defined routes where the URL never changes (e.g. ```/index```). However, it's common to define routes where some parts are variable. For example, the URL to display some blog post will probably include the title or slug (e.g. ```/index/my-first-index``` or ```/index/php-symfony-guide```).
-
-In Symfony routes, variable parts are wrapped in ```{ ... }``` and they must have a unique name.
-
-```php
-namespace App\Controller;
-
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-
-class IndexController extends AbstractController
-{
-    #[Route('/index/{id}', name: 'app_index')]
-    public function index(string $id): Response
-    {
-        // $id will equal the dynamic part of the URL
-        // e.g. at /index/1, then $id='1'
-    }
-}
-```
-
-#### Parameters Validation
 
 ## Author
 
