@@ -6,6 +6,7 @@
   <img alt="PHP" src="https://img.shields.io/badge/PHP-777BB4?logo=php&logoColor=white" />
   <img alt="Symfony" src="https://img.shields.io/badge/Symfony-000000?logo=symfony&logoColor=white" />
   <img alt="Composer" src="https://img.shields.io/badge/Composer-7A6E7E?logo=composer&logoColor=white" />
+  <img alt="Docker" src="https://img.shields.io/badge/Docker-0db7ed?logo=docker&logoColor=white" />
   <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind CSS-3490DC?logo=tailwindcss&logoColor=white" />
 </p>
 
@@ -28,7 +29,7 @@ You'll learn all this while building a fun and interesting project, a Twitter-li
 ### Setup / Installation
 
 #### PHP 8.1
-Install PHP 8.1 or higher. Download the Thread safe version [here](https://windows.php.net/download#php-8.1).
+PHP will be used  to run a built-in server and run console commands. Install PHP 8.1 or higher. Download the Thread safe version [here](https://windows.php.net/download#php-8.1).
 
 <details><summary><b>Show Steps</b></summary>
 
@@ -68,6 +69,9 @@ Composer will be used to install PHP packages. Download it [here](https://getcom
     ```
 
 </details>
+
+#### Docker
+Docker will be used to run a database server and db admin panel.
 
 ### Create Project and Pages
 Open your console terminal and run any of these commands to create a new Symfony application:
