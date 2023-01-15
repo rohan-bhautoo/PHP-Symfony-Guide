@@ -24,6 +24,10 @@ This guide will help you to learn PHP Symfony 6 Framework basics. The concepts i
 
 You'll learn all this while building a fun and interesting project, a Twitter-like clone, using the most modern CSS framework Tailwind CSS.
 
+<p align="center">
+  <img width="600" height="400" src="https://ibb.co/db1LtDH">
+</p>
+
 ## Get Started
 
 ### Setup / Installation
