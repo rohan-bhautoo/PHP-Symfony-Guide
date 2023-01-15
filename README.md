@@ -154,6 +154,13 @@ symfony console make:controller HelloController
 ```
 
 ### Routing PHP 8 Attributes
+A **Route** is the URL (e.g. /about) to your page and points to a controller.
+
+PHP attributes allow to define routes next to the code of the controllers associated to those routes. Attributes are native in PHP 8 and higher versions.
+
+```php
+#[Route('/hello', name: 'app_hello')]
+```
 
 #### Route Parameter Requirements / Optional Parameters
 
