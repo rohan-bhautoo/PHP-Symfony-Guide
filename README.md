@@ -143,17 +143,29 @@ symfony check:security
 * ```vendor/```     - Contains all third-party libraries. These are downloaded via the Composer package manager.
 * ```public/```     - It is the document root of the project where any publicly accessible files are contained.
 
-#### Route and Controller
-A **Route** is the URL (e.g. /about) to your page and points to a controller.
+### Controllers - Returning a Response
 
-A **Controller** is the PHP function you write that builds the page. You take the incoming request information and use it to create a Symfony Response object, which can hold HTML content, a JSON string or even a binary file like an image or PDF.
+### Routing PHP 8 Attributes
 
-##### Creating new controllers
-After running the command, a new ```controller``` and its ```twig``` file is created in their respective directory.
+#### Route Parameter Requirements / Optional Parameters
 
-```shell
-php bin/console make:controller
-```
+### Twig Templates
+
+#### Twig Template Inheritance
+
+#### Twig Control Structures
+
+#### Twig Filters & Functions
+
+#### Twig Functions - Partial Templates
+
+### Generating Links to Routes
+
+### Symfony Maker
+
+### Symfony Profiler
+
+## Databases and Doctrine ORM
 
 ## Author
 
