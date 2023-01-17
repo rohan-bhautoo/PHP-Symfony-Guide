@@ -202,6 +202,27 @@ Symfony evaluates routes in the order they are defined. If the path of a route m
 ```
 
 ### Twig Templates
+A template is the best way to organize and render HTML from inside your application, whether you need to render HTML from a controller or generate the contents of an email. Templates in Symfony are created with Twig: a flexible, fast, and secure template engine.
+
+The Twig templating language allows you to write concise, readable templates that are more friendly to web designers and, in several ways, more powerful than PHP templates.
+
+```twig
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to Symfony!</title>
+    </head>
+    <body>
+        <h1>{{ page_title }}</h1>
+
+        {% if user.isLoggedIn %}
+            Hello {{ user.name }}!
+        {% endif %}
+
+        {# ... #}
+    </body>
+</html>
+```
 
 #### Twig Template Inheritance
 
