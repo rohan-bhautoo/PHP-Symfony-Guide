@@ -224,6 +224,12 @@ The Twig templating language allows you to write concise, readable templates tha
 </html>
 ```
 
+Twig syntax is based on these three constructs:
+
+* ```{{ ... }}```, used to display the content of a variable or the result of evaluating an expression.
+* ```{% ... %}```, used to run some logic, such as a conditional or a loop.
+* ```{# ... #}```, used to add comments to the template (unlike HTML comments, these comments are not included in the rendered page).
+
 Using the ```AbstractController``` in the Controller class to render the Twig template.
 
 ```php
@@ -240,6 +246,22 @@ class HelloController extends AbstractController
 ```
 
 #### Twig Template Inheritance
+The ```extends``` tag can be used to extend a template from another one. We also need to surround all of our content with a ```{% block body %}``` tag and a closing ```{% endblock %}```.
+
+```twig
+{# Child template #}
+{% extends "base.html" %}
+{% block body %}
+    <div class="row">
+        {# ... #}
+    </div>
+{% endblock %}
+```
+
+```twig
+{# Parent template #}
+{% block body %}{% endblock %}
+```
 
 #### Twig Control Structures
 
