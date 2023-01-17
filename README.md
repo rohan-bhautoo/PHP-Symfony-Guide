@@ -224,6 +224,21 @@ The Twig templating language allows you to write concise, readable templates tha
 </html>
 ```
 
+Using the ```AbstractController``` in the Controller class to render the Twig template.
+
+```php
+class HelloController extends AbstractController
+{
+    #[Route('/hello', name: 'app_hello')]
+    public function index(): Response
+    {
+        return $this->render('hello/index.html.twig', [
+            'controller_name' => 'HelloController',
+        ]);
+    }
+}
+```
+
 #### Twig Template Inheritance
 
 #### Twig Control Structures
