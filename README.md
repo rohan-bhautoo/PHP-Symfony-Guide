@@ -163,6 +163,19 @@ PHP attributes allow to define routes next to the code of the controllers associ
 ```
 
 #### Route Parameter Requirements / Optional Parameters
+In order to differentiate between two routes, ex: ```/hello/{id}``` & ```/hello/{personId}```, the **requirements** option will be used.
+
+The **requirements** option defines the PHP regular expressions that route parameters must match for the entire route to match.
+
+```php
+#[Route('/hello/{id}', name: 'app_hello', requirements: ['id' => '\d+'])]
+```
+
+Requirements can be inlined in each parameter using the syntax ```{parameter_name<requirements>}```.
+
+```php
+#[Route('/hello/{id<\d+>}', name: 'app_hello')]
+```
 
 ### Twig Templates
 
