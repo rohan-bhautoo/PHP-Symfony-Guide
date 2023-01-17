@@ -194,6 +194,13 @@ Default values can also be inlined in each parameter using the syntax ```{parame
 #[Route('/hello/{id<\d+>?1}', name: 'app_hello')]
 ```
 
+##### Priority Parameter
+Symfony evaluates routes in the order they are defined. If the path of a route matches many different patterns, it might prevent other routes from being matched. The optional parameter ```priority``` can be set to control the routes priority.
+
+```php
+#[Route('/hello/{id<\d+>?1}', name: 'app_hello', priority: 2)]
+```
+
 ### Twig Templates
 
 #### Twig Template Inheritance
