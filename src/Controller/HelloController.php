@@ -16,8 +16,14 @@ class HelloController extends AbstractController
         ]);
     }
 
-    #[Route('/hello/{id}', name: 'app_id')]
-    public function showId($id): Response
+    #[Route('/hello/{id<\d+>}', name: 'app_id')]
+    public function showId(int $id): Response
+    {
+        return new Response($id);
+    }
+
+    #[Route('/limit/{id<\d+>?1}', name: 'app_limit')]
+    public function showOne(int $id): Response
     {
         return new Response($id);
     }
