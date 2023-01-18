@@ -275,7 +275,7 @@ The ```extends``` tag can be used to extend a template from another one. We also
 
 ### Symfony Profiler
 
-## Databases and Doctrine ORM
+## Databases and Doctrine OR
 
 ## Author
 
