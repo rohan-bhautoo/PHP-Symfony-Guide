@@ -11,6 +11,10 @@
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
+    {% for num in tests %}
+        <div>{{ num }}</div>
+    {% endfor %}
+
     This friendly message is coming from:
     <ul>
         <li>Your controller at <code><a href="{{ 'C:/Users/rohan/Desktop/Projects/PHP-Symfony-Guide/src/Controller/HelloController.php'|file_link(0) }}">src/Controller/HelloController.php</a></code></li>
