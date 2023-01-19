@@ -264,6 +264,25 @@ The ```extends``` tag can be used to extend a template from another one. We also
 ```
 
 #### Twig Control Structures
+##### For Loop
+A for loop can be used inside a twig template to display all the values from an array (from controller).
+
+```twig
+{% for num in tests %}
+  <div>{{ num }}</div>
+{% endfor %}
+```
+
+##### Conditional Statement
+```twig
+{% for num in tests %}
+    {% if num <= 2 %}
+        <div>{{ num }}</div>
+    {% else %}
+        <div>Num greater than 2</div>
+    {% endif %}
+{% endfor %}
+```
 
 #### Twig Filters & Functions
 
