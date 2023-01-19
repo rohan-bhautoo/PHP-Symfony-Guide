@@ -12,7 +12,11 @@
     <h1>Hello {{ controller_name }}! ✅</h1>
 
     {% for num in tests %}
-        <div>{{ num }}</div>
+        {% if num <= 2 %}
+            <div>{{ num }}</div>
+        {% else %}
+            <div>Num greater than 2</div>
+        {% endif %}
     {% endfor %}
 
     This friendly message is coming from:
