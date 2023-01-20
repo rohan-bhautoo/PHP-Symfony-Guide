@@ -295,6 +295,11 @@ Filters in Twig can be used to modify variables. Filters are separated from the 
 ```
 
 ##### Functions - Partial Templates
+Twig provides a number of handy functions that can be used directly within Templates.
+
+> *A list of functions can be find [here](https://twig.symfony.com/doc/3.x/functions/index.html).*
+
+###### Include Function
 
 ### Generating Links to Routes
 
