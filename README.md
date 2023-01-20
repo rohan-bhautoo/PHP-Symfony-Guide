@@ -285,8 +285,16 @@ A for loop can be used inside a twig template to display all the values from an 
 ```
 
 #### Twig Filters & Functions
+##### Filters
+Filters in Twig can be used to modify variables. Filters are separated from the variable by a pipe symbol. They may have optional arguments in parentheses. 
 
-#### Twig Functions - Partial Templates
+> *A list of filters can be find [here](https://twig.symfony.com/doc/3.x/filters/index.html).*
+
+```twig
+{{ content|safe_join(", ")|lower }} 
+```
+
+##### Functions - Partial Templates
 
 ### Generating Links to Routes
 
