@@ -300,6 +300,25 @@ Twig provides a number of handy functions that can be used directly within Templ
 > *A list of functions can be find [here](https://twig.symfony.com/doc/3.x/functions/index.html).*
 
 ###### Include Function
+The [include](https://twig.symfony.com/doc/3.x/functions/include.html) function returns the rendered content of a template. Included templates have access to the variables of the active context.
+
+```twig
+{{ include('template.html') }}
+```
+
+###### Partial Templates
+Partial Twig templates help you reduce code duplication by adding code in a template and including it in multiple other templates. Partial templates starts with an ```_```. The ```_``` prefix is optional, but it's a convention used to better differentiate between full templates and template fragments.
+
+```twig
+{% for num in tests %}
+    {% if num.test <= 2 %}
+        <div>{{ num.test }}</div>
+    {% else %}
+        <div>Num greater than 2</div>
+    {% endif %}
+    {{ include('hello/_test.html.twig') }}
+{% endfor %}
+```
 
 ### Generating Links to Routes
 
