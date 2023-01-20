@@ -1,7 +1,7 @@
 <div style="color: grey;">
-    {% if date(num.created) < date('-1year') %}
+    {% if date(date) < date('-1year') %}
         Older than 1 year
     {% else %}
-        {{ num.created|date('d/m/Y') }}
+        {{ date|date('d/m/Y') }}
     {% endif %}
 </div>

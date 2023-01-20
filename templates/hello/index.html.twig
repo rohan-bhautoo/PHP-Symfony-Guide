@@ -17,7 +17,7 @@
         {% else %}
             <div>Num greater than 2</div>
         {% endif %}
-        {{ include('hello/_test.html.twig') }}
+        {{ include('hello/_test.html.twig', {date: num.created}) }}
     {% endfor %}
 
     This friendly message is coming from:
