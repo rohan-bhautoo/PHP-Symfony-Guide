@@ -8,7 +8,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HelloController extends AbstractController
 {
-    public $test = [1, 2, 3];
+    private array $test = [
+        ['test' => 1, 'created' => '2023/01/20'],
+        ['test' => 2, 'created' => '2022/12/24'],
+        ['test' => 3, 'created' => '2021/09/22']
+    ];
 
     #[Route('/hello', name: 'app_hello')]
     public function index(): Response

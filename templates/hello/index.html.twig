@@ -12,11 +12,12 @@
     <h1>Hello {{ controller_name|lower }}! ✅</h1>
 
     {% for num in tests %}
-        {% if num <= 2 %}
-            <div>{{ num }}</div>
+        {% if num.test <= 2 %}
+            <div>{{ num.test }}</div>
         {% else %}
             <div>Num greater than 2</div>
         {% endif %}
+        {{ include('hello/_test.html.twig') }}
     {% endfor %}
 
     This friendly message is coming from:
