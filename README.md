@@ -328,6 +328,17 @@ Use the ```path()``` Twig function to link pages and pass the route name as the 
 ```
 
 ### Symfony Maker
+Symfony Maker helps you create empty commands, controllers, form classes, tests and more so you can forget about writing boilerplate code.
+
+#### Installation
+```powershell
+composer require --dev symfony/maker-bundle
+```
+
+#### Usage
+```powershell
+symfony console list make
+```
 
 ### Symfony Profiler
 
