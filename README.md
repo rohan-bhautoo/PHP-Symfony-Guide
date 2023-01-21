@@ -341,6 +341,11 @@ symfony console list make
 ```
 
 ### Symfony Profiler
+The profiler is a powerful development tool that gives detailed information about the execution of any request.
+
+<p align="center">
+  <img width="600" height="400" src="https://symfony.com/doc/6.2/_images/web-interface.png">
+</p>
 
 ## Databases and Doctrine ORM
 
