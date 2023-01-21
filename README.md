@@ -316,7 +316,7 @@ Partial Twig templates help you reduce code duplication by adding code in a temp
     {% else %}
         <div>Num greater than 2</div>
     {% endif %}
-    {{ include('hello/_test.html.twig') }}
+    {{ include('hello/_test.html.twig', {date: num.created}) }}
 {% endfor %}
 ```
 
