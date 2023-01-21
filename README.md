@@ -321,6 +321,11 @@ Partial Twig templates help you reduce code duplication by adding code in a temp
 ```
 
 ### Generating Links to Routes
+Use the ```path()``` Twig function to link pages and pass the route name as the first argument and the route parameters as the optional second argument.
+
+```twig
+<a href={{ path('app_id', {id: num.test}) }}>{{ num.test }}</a>
+```
 
 ### Symfony Maker
 
