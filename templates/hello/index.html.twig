@@ -13,7 +13,9 @@
 
     {% for num in tests %}
         {% if num.test <= 2 %}
-            <div>{{ num.test }}</div>
+            <div>
+                <a href={{ path('app_id', {id: num.test}) }}>{{ num.test }}</a>
+            </div>
         {% else %}
             <div>Num greater than 2</div>
         {% endif %}
