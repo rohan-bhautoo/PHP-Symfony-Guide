@@ -399,6 +399,11 @@ services:
 * If you obtain error ```could not find driver in ExceptionConverter.php```, then enable the extension ```pdo_mysql``` in ```php.ini``` file.
 
 ### Entities
+Entities are PHP Objects that can be identified over many requests by a unique identifier or primary key.
+
+```
+symfony console make:entity
+```
 
 ### Migrations
 
