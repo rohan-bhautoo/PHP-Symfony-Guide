@@ -348,6 +348,11 @@ The profiler is a powerful development tool that gives detailed information abou
 </p>
 
 ## Databases and Doctrine ORM
+Symfony provides all the tools you need to use databases in your applications thanks to Doctrine, the best set of PHP libraries to work with databases. These tools support relational databases like MySQL and PostgreSQL and also NoSQL databases like MongoDB.
+
+<p align="center">
+  <img src="https://i.ibb.co/Ytc0VLY/Databases-Doctrine-2x.png">
+</p>
 
 ### Docker
 
