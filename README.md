@@ -355,6 +355,11 @@ Symfony provides all the tools you need to use databases in your applications th
 </p>
 
 ### Docker
+Docker is a software platform that allows you to build, test, and deploy applications quickly. Docker packages software into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime.
+
+<p align="center">
+  <img src="https://i.ibb.co/Ytc0VLY/Databases-Doctrine-2x.png">
+</p>
 
 ### MySQL Server and Connection
 
