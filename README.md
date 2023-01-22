@@ -517,8 +517,6 @@ public function showOne(MicroPost $microPost): Response
 
 The ```{microPost}``` variable in the URL will be equal to the ```id``` of the ```MicroPost``` object in the database. By default, it is fetching by the primary key but this can be configurable ([Documentation](https://symfony.com/bundles/SensioFrameworkExtraBundle/current/annotations/converters.html)).
 
-### Retrive Data
-
 ## Forms
 
 ## Author
