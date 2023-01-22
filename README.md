@@ -430,6 +430,30 @@ Database migrations are a way to safely update your database schema both locally
   ```
 
 ### Doctrine Fixtures
+Fixtures are used to load a "fake" set of data into a database that can then be used for testing or to help give you some interesting data while you're developing your application.
+
+#### Installation
+```powershell
+composer require --dev orm-fixtures
+composer require --dev doctrine/doctrine-fixtures-bundle
+```
+
+#### Usage
+```php
+public function load(ObjectManager $manager): void
+    {
+        $microPost1 = new MicroPost();
+        $microPost1->setTitle('Welcome to Mauritius');
+        $microPost1->setText('Port-Louis');
+        $microPost1->setCreated(new DateTime());
+        $manager->persist($microPost1);
+        $manager->flush();
+    }
+```
+
+```
+symfony console doctrine:fixtures:load
+```
 
 ### Repositories
 
