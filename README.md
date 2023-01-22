@@ -361,7 +361,42 @@ Docker is a software platform that allows you to build, test, and deploy applica
   <img src="https://i.ibb.co/xDzgmLM/Docker-2x.png">
 </p>
 
-### MySQL Server and Connection
+#### MySQL Server and Connection
+```yml
+version: "3.8"
+services:
+  mysql:
+    image: mariadb:10.8.3
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+```
+
+* Configure the database connection by changing the ```DATABASE_URL``` in ```.env``` file.
+  ```
+  DATABASE_URL="mysql://root:root@127.0.0.1:3306/SymfonyGuide?serverVersion=mariadb-10.8.3&charset=utf8mb4"
+  ```
+* Change the ```server_version``` in ```doctrine.yaml``` file.
+  ```yaml
+  doctrine:
+      dbal:
+          url: '%env(resolve:DATABASE_URL)%'
+          server_version: '10.8.3'
+  ```
+* Create database with Symfony command.
+  ```
+  symfony console doctrine:database:create
+  ```
+* If you obtain error ```could not find driver in ExceptionConverter.php```, then enable the extension ```pdo_mysql``` in ```php.ini``` file.
 
 ### Entities
 
