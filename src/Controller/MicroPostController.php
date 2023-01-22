@@ -14,19 +14,8 @@ class MicroPostController extends AbstractController
     #[Route('/micro-post', name: 'app_micro_post')]
     public function index(MicroPostRepository $microPostRepository): Response
     {
-        /*$microPost = new MicroPost();
-        $microPost->setTitle('Welcome to Germany');
-        $microPost->setText('Belgium');
-        $microPost->setCreated(new DateTime());
-        $microPostRepository->save($microPost, true);*/
-
-        /*$microPost = $microPostRepository->find(2);
-        $microPost->setTitle('Welcome update');
-        $microPostRepository->save($microPost, true);*/
-
-        //dd($microPostRepository->findBy(['title' => 'Welcome to Mauritius']));
         return $this->render('micro_post/index.html.twig', [
-            'controller_name' => 'MicroPostController',
+            'posts' => $microPostRepository->findAll(),
         ]);
     }
 
@@ -35,9 +24,8 @@ class MicroPostController extends AbstractController
      */
     public function showOne(MicroPost $microPost): Response
     {
-        dd($microPost);
-        return $this->render('micro_post/index.html.twig', [
-            'controller_name' => 'MicroPostController',
+        return $this->render('micro_post/_show.html.twig', [
+            'post' => $microPost
         ]);
     }
 }
