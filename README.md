@@ -496,6 +496,26 @@ A repository is a term used by many ORMs. It means the place where our data can 
 > *The function ```flush()``` flushes all changes to objects that have been queued up to now to the database. This effectively synchronizes the in-memory state of managed objects with the database.*
 
 ### Param Converter
+The default Symfony FrameworkBundle implements a basic but robust and flexible MVC framework. [SensioFrameworkExtraBundle](https://symfony.com/bundles/SensioFrameworkExtraBundle/current/index.html) extends it to add sweet conventions and annotations. It allows for more concise controllers.
+
+```
+composer require sensio/framework-extra-bundle
+```
+
+```php
+/**
+ * @Route("micro-post/{microPost}", name="app_micro_post_show")
+ */
+public function showOne(MicroPost $microPost): Response
+{
+    dd($microPost);
+    return $this->render('micro_post/index.html.twig', [
+        'controller_name' => 'MicroPostController',
+    ]);
+}
+```
+
+The ```{microPost}``` variable in the URL will be equal to the ```id``` of the ```MicroPost``` object in the database. By default, it is fetching by the primary key but this can be configurable ([Documentation](https://symfony.com/bundles/SensioFrameworkExtraBundle/current/annotations/converters.html)).
 
 ### Retrive Data
 
