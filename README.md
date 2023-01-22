@@ -399,8 +399,20 @@ services:
 * If you obtain error ```could not find driver in ExceptionConverter.php```, then enable the extension ```pdo_mysql``` in ```php.ini``` file.
 
 ### Entities
+Entities are PHP Objects that can be identified over many requests by a unique identifier or primary key.
+
+```
+symfony console make:entity
+```
 
 ### Migrations
+Database migrations are a way to safely update your database schema both locally and on production. Instead of running the doctrine:schema:update command or applying the database changes manually with SQL statements, migrations allow to replicate the changes in your database schema in a safe manner.
+
+```
+symfony console make:migration
+```
+
+A migration file will be auto generated in the migrations folder with the SQL query and with the ```up()``` and ```down()``` functions.
 
 ### Doctrine Fixtures
 
