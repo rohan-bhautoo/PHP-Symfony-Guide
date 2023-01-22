@@ -456,8 +456,66 @@ symfony console doctrine:fixtures:load
 ```
 
 ### Repositories
+A repository is a term used by many ORMs. It means the place where our data can be accessed from, a repository of data. This is to distinguish it from a database as a repository does not care how its data is stored.
+
+* Retrieve all data
+  ```php
+  $microPostRepository->findAll()
+  ```
+* Retrieve data by id
+  ```php
+  $microPostRepository->findOne(1)
+  ```
+* Retrieve one data corresponding to title
+  ```php
+  $microPostRepository->findOneBy(['title' => 'Welcome to Mauritius'])
+  ```
+* Retrieve all data corresponding to title
+  ```php
+  $microPostRepository->findBy(['title' => 'Welcome to Mauritius'])
+  ```
+* Add new data in table
+  ```php
+  $microPost = new MicroPost();
+  $microPost->setTitle('Welcome to Germany');
+  $microPost->setText('Belgium');
+  $microPost->setCreated(new DateTime());
+  $microPostRepository->save($microPost, true);
+  ```
+* Update existing data in table
+  ```php
+  $microPost = $microPostRepository->find(2);
+  $microPost->setTitle('Welcome update');
+  $microPostRepository->save($microPost, true);
+  ```
+* Remove data from table
+  ```php
+  $microPost = $microPostRepository->find(2);
+  $microPostRepository->remove($microPost, true);
+  ```
+> *The function ```flush()``` flushes all changes to objects that have been queued up to now to the database. This effectively synchronizes the in-memory state of managed objects with the database.*
 
 ### Param Converter
+The default Symfony FrameworkBundle implements a basic but robust and flexible MVC framework. [SensioFrameworkExtraBundle](https://symfony.com/bundles/SensioFrameworkExtraBundle/current/index.html) extends it to add sweet conventions and annotations. It allows for more concise controllers.
+
+```
+composer require sensio/framework-extra-bundle
+```
+
+```php
+/**
+ * @Route("micro-post/{microPost}", name="app_micro_post_show")
+ */
+public function showOne(MicroPost $microPost): Response
+{
+    dd($microPost);
+    return $this->render('micro_post/index.html.twig', [
+        'controller_name' => 'MicroPostController',
+    ]);
+}
+```
+
+The ```{microPost}``` variable in the URL will be equal to the ```id``` of the ```MicroPost``` object in the database. By default, it is fetching by the primary key but this can be configurable ([Documentation](https://symfony.com/bundles/SensioFrameworkExtraBundle/current/annotations/converters.html)).
 
 ### Retrive Data
 
