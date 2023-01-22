@@ -20,11 +20,22 @@ class MicroPostController extends AbstractController
         $microPost->setCreated(new DateTime());
         $microPostRepository->save($microPost, true);*/
 
-        $microPost = $microPostRepository->find(2);
+        /*$microPost = $microPostRepository->find(2);
         $microPost->setTitle('Welcome update');
-        $microPostRepository->save($microPost, true);
+        $microPostRepository->save($microPost, true);*/
 
         //dd($microPostRepository->findBy(['title' => 'Welcome to Mauritius']));
+        return $this->render('micro_post/index.html.twig', [
+            'controller_name' => 'MicroPostController',
+        ]);
+    }
+
+    /**
+     * @Route("micro-post/{microPost}", name="app_micro_post_show")
+     */
+    public function showOne(MicroPost $microPost): Response
+    {
+        dd($microPost);
         return $this->render('micro_post/index.html.twig', [
             'controller_name' => 'MicroPostController',
         ]);
