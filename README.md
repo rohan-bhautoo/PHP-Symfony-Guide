@@ -519,6 +519,18 @@ The ```{microPost}``` variable in the URL will be equal to the ```id``` of the `
 
 ## Forms
 
+### Handling Form Submission
+
+### Flash Messages & Redirects
+
+### Customizing Form Rendering
+
+### Form Themes
+
+### Edit Form
+
+### Form Classes
+
 ## Author
 
 👤 **Rohan Bhautoo**
