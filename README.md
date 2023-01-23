@@ -560,6 +560,48 @@ public function add(): Response
 
 ## Styling Application
 
+### Tailwind CSS
+
+### Styling Post List
+
+### Styling Forms
+
+### Adding Breadcrumbs
+
+### Custom Form Theme
+
+### Form Validation
+
+## Database Relations in Doctrine
+
+### Relations
+
+### One to One Relation
+
+### One to Many Relation
+
+### Many to Many Relation
+
+## Comments Feature
+
+### Adding Comments
+
+### Solving N+1 Problem
+
+### Display Comments
+
+## Authentication & Authorization
+
+## User Registration & Verification
+
+## User Profiles, Likes & Following Features
+
+## More Features & Complex Database Queries
+
+## File Uploads
+
+## Services, Service Container & Dependency Injection
+
 ## Author
 
 👤 **Rohan Bhautoo**
