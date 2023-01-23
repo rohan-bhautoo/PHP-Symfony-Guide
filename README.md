@@ -529,6 +529,23 @@ The recommended workflow when working with Symfony forms is the following:
 * **Render the form** in a template so the user can edit and submit it.
 * **Process the form** to validate the submitted data, transform it into PHP data and do something with it.
 
+```php
+#[Route('/micro-post/add', name: 'app_micro_post_add', priority: 2)]
+    public function add(): Response
+    {
+        $microPost = new MicroPost();
+        $form = $this->createFormBuilder($microPost)
+        ->add('title')
+        ->add('text')
+        ->add('submit', SubmitType::class, ['label' => 'Save'])
+        ->getForm();
+
+        return $this->render('micro_post/_add.html.twig', [
+            'form' => $form,
+        ]);
+    }
+```
+
 ### Handling Form Submission
 
 ### Flash Messages & Redirects
