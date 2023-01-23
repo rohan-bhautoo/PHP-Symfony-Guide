@@ -518,6 +518,16 @@ public function showOne(MicroPost $microPost): Response
 The ```{microPost}``` variable in the URL will be equal to the ```id``` of the ```MicroPost``` object in the database. By default, it is fetching by the primary key but this can be configurable ([Documentation](https://symfony.com/bundles/SensioFrameworkExtraBundle/current/annotations/converters.html)).
 
 ## Forms
+Creating and processing HTML forms is hard and repetitive. You need to deal with rendering HTML form fields, validating submitted data, mapping the form data into objects and a lot more. Symfony includes a powerful form feature that provides all these features and many more for truly complex scenarios.
+
+```
+composer require symfony/form
+```
+
+The recommended workflow when working with Symfony forms is the following:
+* **Build the form** in a Symfony controller or using a dedicated form class.
+* **Render the form** in a template so the user can edit and submit it.
+* **Process the form** to validate the submitted data, transform it into PHP data and do something with it.
 
 ### Handling Form Submission
 
