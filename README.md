@@ -558,6 +558,8 @@ public function add(): Response
 
 ### Form Classes
 
+## Styling Application
+
 ## Author
 
 👤 **Rohan Bhautoo**
