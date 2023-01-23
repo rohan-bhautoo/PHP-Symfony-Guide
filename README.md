@@ -531,19 +531,19 @@ The recommended workflow when working with Symfony forms is the following:
 
 ```php
 #[Route('/micro-post/add', name: 'app_micro_post_add', priority: 2)]
-    public function add(): Response
-    {
-        $microPost = new MicroPost();
-        $form = $this->createFormBuilder($microPost)
-        ->add('title')
-        ->add('text')
-        ->add('submit', SubmitType::class, ['label' => 'Save'])
-        ->getForm();
+public function add(): Response
+{
+    $microPost = new MicroPost();
+    $form = $this->createFormBuilder($microPost)
+    ->add('title')
+    ->add('text')
+    ->add('submit', SubmitType::class, ['label' => 'Save'])
+    ->getForm();
 
-        return $this->render('micro_post/_add.html.twig', [
-            'form' => $form,
-        ]);
-    }
+    return $this->render('micro_post/_add.html.twig', [
+        'form' => $form,
+    ]);
+}
 ```
 
 ### Handling Form Submission
