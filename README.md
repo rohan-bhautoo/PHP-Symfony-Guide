@@ -562,7 +562,11 @@ if ($form->isSubmitted() && $form->isValid()) {
 Flash messages are temporary messages used for user notifications. They are stored in a session and vanish as soon as they are retrieved.
 
 ```php
+// Flash Message
 $this->addFlash('success', 'Your micro post has been added!');
+
+// Redirect Page
+return $this->redirectToRoute('app_micro_post');
 ```
 
 ```twig
