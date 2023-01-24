@@ -592,6 +592,26 @@ public function add(): Response
 
 ## Authentication & Authorization
 
+### Hashing Passwords
+
+### Creating Users - Fixtures & Custom Console Command
+
+### Authenticating
+
+### Logging Out Feature
+
+### Relate Posts & Comments to User
+
+### Unrun Migration Problem
+
+### Get Current User
+
+### User Roles
+
+### Logout Button and Missing Features
+
+### Voters
+
 ## User Registration & Verification
 
 ## User Profiles, Likes & Following Features
