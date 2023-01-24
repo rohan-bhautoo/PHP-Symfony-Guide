@@ -7,6 +7,7 @@ use App\Repository\MicroPostRepository;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -29,7 +30,7 @@ class MicroPostController extends AbstractController
     }
 
     #[Route('/micro-post/add', name: 'app_micro_post_add', priority: 2)]
-    public function add(): Response
+    public function add(Request $request, MicroPostRepository $microPostRepository): Response
     {
         $microPost = new MicroPost();
         $form = $this->createFormBuilder($microPost)
@@ -37,6 +38,18 @@ class MicroPostController extends AbstractController
         ->add('text')
         ->add('submit', SubmitType::class, ['label' => 'Save'])
         ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $microPost = $form->getData();
+            $microPost->setCreated(new DateTime());
+            $microPostRepository->save($microPost, true);
+
+            // Flash Message
+
+            // Redirect Page
+        }
 
         return $this->render('micro_post/_add.html.twig', [
             'form' => $form,
