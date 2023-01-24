@@ -547,6 +547,16 @@ public function add(): Response
 ```
 
 ### Handling Form Submission
+The recommended way of processing forms is to use a single action for both rendering the form and handling the form submit.
+
+```php
+$form->handleRequest($request);
+if ($form->isSubmitted() && $form->isValid()) {
+    $microPost = $form->getData();
+    $microPost->setCreated(new DateTime());
+    $microPostRepository->save($microPost, true);
+}
+```
 
 ### Flash Messages & Redirects
 
