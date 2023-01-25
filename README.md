@@ -578,6 +578,18 @@ return $this->redirectToRoute('app_micro_post');
 ```
 
 ### Customizing Form Rendering
+A single call to the form() Twig function is enough to render an entire form, including all its fields and error messages.
+
+```twig
+{{ form(form) }}
+```
+
+There are different twig functions such as ```form_start()```, ```form_end()```, ```form_errors()``` and ```form_row()```, that will enable you to customize different parts of the form by adding HTML elements and attributes.
+
+* ```form_start()```  - Renders the start tag of a form.
+* ```form_end()```    - Renders the end tag of a form.
+* ```form_errors()``` - Renders any errors for the given field.
+* ```form_row()```    - Renders the "row" of a given field, which is the combination of the field's label, errors, help and widget.
 
 ### Form Themes
 
