@@ -584,12 +584,17 @@ A single call to the form() Twig function is enough to render an entire form, in
 {{ form(form) }}
 ```
 
-There are different twig functions such as ```form_start()```, ```form_end()```, ```form_errors()``` and ```form_row()```, that will enable you to customize different parts of the form by adding HTML elements and attributes.
+There are different twig functions that will enable you to customize different parts of the form by adding HTML elements and attributes.
 
 * ```form_start()```  - Renders the start tag of a form.
 * ```form_end()```    - Renders the end tag of a form.
+* ```form_label()```  - Renders the label for the given field. You can optionally pass the specific label you want to display as the second argument.
+* ```form_help()```   - Renders the help text for the given field.
 * ```form_errors()``` - Renders any errors for the given field.
+* ```form_widget()``` - Renders the HTML widget of a given field.
 * ```form_row()```    - Renders the "row" of a given field, which is the combination of the field's label, errors, help and widget.
+* ```form_rest()```   - Renders all fields that have not yet been rendered for the given form.
+* ```form_parent()``` - Returns the parent form view or null if the form view already is the root form.
 
 ### Form Themes
 
