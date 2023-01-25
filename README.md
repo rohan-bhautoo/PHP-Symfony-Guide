@@ -597,6 +597,7 @@ There are different twig functions that will enable you to customize different p
 * ```form_parent()``` - Returns the parent form view or null if the form view already is the root form.
 
 ### Form Themes
+Symfony comes with several built-in [form themes](https://symfony.com/doc/current/form/form_themes.html) that make your forms look great when using some of the most popular CSS frameworks.
 
 ### Edit Form
 
