@@ -599,8 +599,6 @@ There are different twig functions that will enable you to customize different p
 ### Form Themes
 Symfony comes with several built-in [form themes](https://symfony.com/doc/current/form/form_themes.html) that make your forms look great when using some of the most popular CSS frameworks.
 
-### Edit Form
-
 ### Form Classes
 
 ## Styling Application
