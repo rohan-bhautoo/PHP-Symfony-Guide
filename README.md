@@ -588,7 +588,7 @@ There are different twig functions that will enable you to customize different p
 
 * ```form_start()```  - Renders the start tag of a form.
 * ```form_end()```    - Renders the end tag of a form.
-* ```form_label()```  - Renders the label for the given field. You can optionally pass the specific label you want to display as the second argument.
+* ```form_label()```  - Renders the label for the given field.
 * ```form_help()```   - Renders the help text for the given field.
 * ```form_errors()``` - Renders any errors for the given field.
 * ```form_widget()``` - Renders the HTML widget of a given field.
