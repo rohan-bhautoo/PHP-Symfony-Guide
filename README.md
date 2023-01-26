@@ -600,6 +600,7 @@ There are different twig functions that will enable you to customize different p
 Symfony comes with several built-in [form themes](https://symfony.com/doc/current/form/form_themes.html) that make your forms look great when using some of the most popular CSS frameworks.
 
 ### Form Classes
+Symfony recommends putting as little logic as possible in controllers. That's why it's better to move complex forms to dedicated classes instead of defining them in controller actions. Besides, forms defined in classes can be reused in multiple actions and services.
 
 ## Styling Application
 
