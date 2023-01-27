@@ -613,9 +613,27 @@ $form = $this->createForm(MicroPostType::class, new MicroPost());
 ```
 
 ## Styling Application
+Nowadays, frameworks, like Bootstrap and Tailwind, are used to design a website more easily and rapidly. They offer some pre-defined styles and also several components.
 
 ### Tailwind CSS
-Tailwind CSS works by scanning all of your HTML files, JavaScript components, and any other templates for class names, generating the corresponding styles and then writing them to a static CSS file.
+[Tailwind CSS](https://tailwindcss.com/) works by scanning all of your HTML files, JavaScript components, and any other templates for class names, generating the corresponding styles and then writing them to a static CSS file.
+
+```html
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+```
 
 ### Styling Post List
 
