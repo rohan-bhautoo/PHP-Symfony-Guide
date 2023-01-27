@@ -602,6 +602,16 @@ Symfony comes with several built-in [form themes](https://symfony.com/doc/curren
 ### Form Classes
 Symfony recommends putting as little logic as possible in controllers. That's why it's better to move complex forms to dedicated classes instead of defining them in controller actions. Besides, forms defined in classes can be reused in multiple actions and services.
 
+Form classes are form types that implement FormTypeInterface.
+
+```
+symfony console make:form
+```
+
+```php
+$form = $this->createForm(MicroPostType::class, new MicroPost());
+```
+
 ## Styling Application
 
 ### Tailwind CSS
