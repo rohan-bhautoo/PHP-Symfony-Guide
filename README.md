@@ -615,6 +615,7 @@ $form = $this->createForm(MicroPostType::class, new MicroPost());
 ## Styling Application
 
 ### Tailwind CSS
+Tailwind CSS works by scanning all of your HTML files, JavaScript components, and any other templates for class names, generating the corresponding styles and then writing them to a static CSS file.
 
 ### Styling Post List
 
