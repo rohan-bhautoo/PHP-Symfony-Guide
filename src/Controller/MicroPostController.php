@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\MicroPost;
+use App\Form\MicroPostType;
 use App\Repository\MicroPostRepository;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,11 +33,7 @@ class MicroPostController extends AbstractController
     #[Route('/micro-post/add', name: 'app_micro_post_add', priority: 2)]
     public function add(Request $request, MicroPostRepository $microPostRepository): Response
     {
-        $microPost = new MicroPost();
-        $form = $this->createFormBuilder($microPost)
-        ->add('title')
-        ->add('text')
-        ->getForm();
+        $form = $this->createForm(MicroPostType::class, new MicroPost());
 
         $form->handleRequest($request);
 
@@ -60,10 +57,7 @@ class MicroPostController extends AbstractController
     #[Route('/micro-post/{microPost}/edit', name: 'app_micro_post_edit')]
     public function edit(MicroPost $microPost, Request $request, MicroPostRepository $microPostRepository): Response
     {
-        $form = $this->createFormBuilder($microPost)
-        ->add('title')
-        ->add('text')
-        ->getForm();
+        $form = $this->createForm(MicroPostType::class, new MicroPost());
 
         $form->handleRequest($request);
 
