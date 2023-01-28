@@ -622,17 +622,19 @@ Nowadays, frameworks, like Bootstrap and Tailwind, are used to design a website 
 <head>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            clifford: '#da373d',
-          }
-        }
+      tailwind.config = {
+          darkMode: 'class'
       }
-    }
   </script>
 </head>
+```
+
+#### Dark Mode
+```html
+<html class="dark">
+  <body class="bg-gray-100 text-gray-800 m-10 dark:bg-gray-800 dark:text-white">
+  </body>
+</html>
 ```
 
 ### Styling Post List
