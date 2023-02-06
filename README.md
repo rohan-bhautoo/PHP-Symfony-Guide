@@ -687,13 +687,53 @@ Nowadays, frameworks, like Bootstrap and Tailwind, are used to design a website 
 
 ## User Registration & Verification
 
+### Registration Controller
+
+### Mail Catcher
+
+### Testing Registration
+
+### User Checkers
+
+### Banning Users Functionality
+
 ## User Profiles, Likes & Following Features
+
+### User Profile Form
+
+### Embedding Forms
+
+### Following Feature
+
+#### Data Model
+
+#### Functionality
+
+### Tab Navigation
 
 ## More Features & Complex Database Queries
 
+### Reusable Queries
+
 ## File Uploads
 
+### Image Uploading Controller
+
+### File Upload Form
+
+### Image Upload
+
+### Image Avatar
+
+### Privacy Feature
+
 ## Services, Service Container & Dependency Injection
+
+### Debug Command
+
+### Services & Service Container
+
+### Dependency Injection
 
 ## Author
 
