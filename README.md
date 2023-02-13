@@ -637,8 +637,6 @@ Nowadays, frameworks, like Bootstrap and Tailwind, are used to design a website 
 </html>
 ```
 
-### Styling Forms
-
 ### Adding Breadcrumbs
 
 ### Custom Form Theme
